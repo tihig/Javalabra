@@ -1,0 +1,31 @@
+﻿Tuntikirjanpito
+
+Deadline I 15.1.2013
+n. 4 h + yliaikaa 3h
+Deadline II 22.1.2013
+
+Deadline III 29.1.2013
+
+Deadline IV 5.2.2013
+
+Deadline V 12.2.2013
+
+Deadline VI 19.2.2013
+
+Deadline VII 26.2.2013
+
+
+Dl I:
+aiheen valinta
+tehtävänantoihin tutustuminen
+ssh-avainten luonti
+Git:in asennus
+GitHub tunnusten luonti
+GitHubin käytön harjoittelu: push, pull
+tarvittavien dokumentointien luonti
+
+Ensimmäiset tehtävät eivät aivan sujuneet odotetusti. Git:in asennuksen selvittämiseen meni aikaa, kun Git:in sivujen ohjeet eivät Linuxille olleet kovin selkeät ja sieltä puuttui komentoja, joita päätteeseen olisi kuulunut syöttää. 
+
+SSH- avainten luonti omalle koneelle onnistui alussa ja sain testidokumentit tehtyä. Ongelmia tuli kuitenkin eteen, kun NetBeans-projekti olisi ollut tarkoitus luoda ja siirtää Git:iin. Projektin siirto ei onnistunut ajallaan ja tästä syystä myöhästyin ensimmäisen deadlinen tehtävissä, mutta kumminkin ajallaan palautin tarvittavat tiedot. 
+
+
