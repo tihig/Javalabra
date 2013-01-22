@@ -2,7 +2,9 @@
 
 Deadline I 15.1.2013
 n. 4 h + yliaikaa 3h
+
 Deadline II 22.1.2013
+n. 5-6 h
 
 Deadline III 29.1.2013
 
@@ -28,4 +30,11 @@ Ensimmäiset tehtävät eivät aivan sujuneet odotetusti. Git:in asennuksen selv
 
 SSH- avainten luonti omalle koneelle onnistui alussa ja sain testidokumentit tehtyä. Ongelmia tuli kuitenkin eteen, kun NetBeans-projekti olisi ollut tarkoitus luoda ja siirtää Git:iin. Projektin siirto ei onnistunut ajallaan ja tästä syystä myöhästyin ensimmäisen deadlinen tehtävissä, mutta kumminkin ajallaan palautin tarvittavat tiedot. 
 
+Dl II:
 
+-Määrittelyvaiheen Luokkakaavio
+-Luokkien luonti
+-Yhden laivan tapaus
+-15 testiä
+
+Ensimmäinen versio ohjelmasta on hyvin yksinkertainen ja toteutus ei ihan vielä ole lähellä lopputulosta. Tähän versioon valitsin laivan arvoksi selkeästi jonkun yhden pisteen, jotta perusidea hahmottuisi jotenkin. 
