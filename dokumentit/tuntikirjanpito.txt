@@ -37,4 +37,6 @@ Dl II:
 -Yhden laivan tapaus
 -15 testiä
 
-Ensimmäinen versio ohjelmasta on hyvin yksinkertainen ja toteutus ei ihan vielä ole lähellä lopputulosta. Tähän versioon valitsin laivan arvoksi selkeästi jonkun yhden pisteen, jotta perusidea hahmottuisi jotenkin. 
+Peliä suunnitellessani halusin pitää perusidean hyvin yksinkertaisena. Tämän vuoksi ensimmäisestä versiosta puuttuu vielä paljon laivanupotukselle tärkeitä ja pelattavuuteen vaikuttavia ominaisuuksia. Itse koodin siistinäpitäminen oli vaikeaa, joten koodia joutui käymään läpi useaan otteeseen ja luultavasti tästäkin versiosta karsimalla lähtisi muutama rivi. 
+Ongelmia tässä vaiheessa oli hieman NetBeansin kanssa. Huomasin, että vanhempi versioni ohjelmasta ei JUnit testien tarvittavia paketteja suostunut noutamaan, joten testien ajaminen ei onnistunut. Uudemman version päivittäminen kumminkin auttoi asiaan ja sain tehtyä testit.
+
