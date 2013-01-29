@@ -7,6 +7,7 @@ Deadline II 22.1.2013
 n. 5-6 h
 
 Deadline III 29.1.2013
+n. 7 h
 
 Deadline IV 5.2.2013
 
@@ -39,4 +40,15 @@ Dl II:
 
 Peliä suunnitellessani halusin pitää perusidean hyvin yksinkertaisena. Tämän vuoksi ensimmäisestä versiosta puuttuu vielä paljon laivanupotukselle tärkeitä ja pelattavuuteen vaikuttavia ominaisuuksia. Itse koodin siistinäpitäminen oli vaikeaa, joten koodia joutui käymään läpi useaan otteeseen ja luultavasti tästäkin versiosta karsimalla lähtisi muutama rivi. 
 Ongelmia tässä vaiheessa oli hieman NetBeansin kanssa. Huomasin, että vanhempi versioni ohjelmasta ei JUnit testien tarvittavia paketteja suostunut noutamaan, joten testien ajaminen ei onnistunut. Uudemman version päivittäminen kumminkin auttoi asiaan ja sain tehtyä testit.
+
+Dl III:
+
+- Tarkempi luokkakaavio koneella tehtynä
+- uusi luokka selventämään tilannetta
+- 4 laivaa
+- Laivojen arpominen
+- Lisää testejä
+
+Tähänmennessä haasteellisin ohjelmointiosio löytyi tältä viikolta. Clean Code- periaatteen noudattaminen osoittautui yllättävän hankalaksi laivojen luonnin yhteydessä, kun lisäksi kuului vielä tarkistaa etteivät laivat mene päällekkäin. 
+Testejä tuli paljon lisää ja päätin ne selkeyden vuoksi jaotella. Peli-luokan testit tulivat 3 eri luokkaan, koska ne paisuivat aika isoiksi.
 
