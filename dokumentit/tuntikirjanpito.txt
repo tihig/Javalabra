@@ -49,6 +49,15 @@ Dl III:
 - Laivojen arpominen
 - Lisää testejä
 
-Tähänmennessä haasteellisin ohjelmointiosio löytyi tältä viikolta. Clean Code- periaatteen noudattaminen osoittautui yllättävän hankalaksi laivojen luonnin yhteydessä, kun lisäksi kuului vielä tarkistaa etteivät laivat mene päällekkäin. 
+Tähän mennessä haasteellisin ohjelmointiosio löytyi tältä viikolta. Clean Code- periaatteen noudattaminen osoittautui yllättävän hankalaksi laivojen luonnin yhteydessä, kun lisäksi kuului vielä tarkistaa etteivät laivat mene päällekkäin. 
 Testejä tuli paljon lisää ja päätin ne selkeyden vuoksi jaotella. Peli-luokan testit tulivat 3 eri luokkaan, koska ne paisuivat aika isoiksi.
 
+Dl IV:
+
+- Koodin siistiminen
+- Käyttöliittymän suunnittelu ja suurin osa toteutuksesta
+- 3 sekvenssikaaviota tilanteista: käynnistys, osuu ja väärä syöte
+
+Käyttöliittymän rakentamisen suurin osuus tuli tehtyä tällä kertaa.
+Ongelmia rakentamisessa oli Layout-rakenteen kanssa, jota täytyy vielä säätää hieman. Kentästä puuttuu nyt numerointi, joka olisi käyttäjäystävällinen piirre ulkoasussa. 
+Itse sovelluslogiikassa kaikki on tulosten laskentaa lukuunottamatta valmista. Tähän on tulossa oma kohtansa koodin.
