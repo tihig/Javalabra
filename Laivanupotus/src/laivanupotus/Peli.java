@@ -1,37 +1,60 @@
 package laivanupotus;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import laivanupotus.domain.PeliLauta;
+import laivanupotus.domain.Ruutu;
 
+/*
+ * Hallinnoi käyttäjän syötteitä ja pitää kirjaa ammutuista ammuksista
+ */
 public class Peli {
 
     private Scanner lukija;
     private PeliLauta lauta;
+    private ArrayList<Ruutu> osumat;
+    private ArrayList<Ruutu> ohi;
+    private ArrayList<Ruutu> tyhjat;
+    private int AmmusLaskuri;
 
     public Peli() {
         this.lukija = new Scanner(System.in);
         this.lauta = new PeliLauta();
+        this.AmmusLaskuri = 0;
+        this.osumat = new ArrayList<Ruutu>();
+        this.ohi = new ArrayList<Ruutu>();
+        this.tyhjat = new ArrayList<Ruutu>();
     }
+    /*
+     * @Param Käynnistää pelin luomalla laivat
+     * 
+     */
 
     public void kaynnista() {
         lauta.luoLaivat();
-        while (true) {
-            System.out.println("Anna koordinaatit(A-J + 0-9 ja X- lopettaa):");
-            String vastaus = lukija.nextLine();
-            if (vastaus.contains("X")) {
-                System.out.println("Game Over");
-                break;
-            }
-            int arvoX = muutaArvoX(vastaus);
-            int arvoY = muutaArvoY(vastaus);
-            if (arvoX == 99 || arvoY == 99) {
-                System.out.println("väärä arvo!");
-            } else {
-                System.out.println(this.osuuko(lauta.osuu(arvoX, arvoY)));
+    }
+    /*
+     * @Param käyttöliittymän kanssa yhteensopiva käynnistys
+     */
 
-            }
+    public void syotaArvot(String arvo) {
+        String vastaus = arvo.toUpperCase();
+        int arvoX = muutaArvoX(vastaus);
+        int arvoY = muutaArvoY(vastaus);
+        if (arvoX == 99 || arvoY == 99) {
+        } else {
+            lauta.osuu(arvoX, arvoY);
+            this.osuuko(arvoX, arvoY);
+            AmmusLaskuri++;
+        }
+        if (lauta.onkoUponnut()) {
+            System.out.println("VOITTO!");
+
         }
     }
+    /*
+     * @return palauttaa kirjainta vastaavaan numerokoordinaatin
+     */
 
     public int muutaArvoX(String arvo) {
         String kirjaimet = "ABCDEFGHIJ";
@@ -44,6 +67,9 @@ public class Peli {
         }
         return 99;
     }
+    /*
+     * @return palauttaa kirjainmuodossa annetun numeron numeromuotoisena
+     */
 
     public int muutaArvoY(String arvo) {
         String numerot = "0123456789";
@@ -56,11 +82,57 @@ public class Peli {
         }
         return 99;
     }
+    /*
+     * @Param testitapauksille lopetuksen todentaminen
+     */
 
-    public String osuuko(boolean arvo) {
-        if (arvo == true) {
-            return "Osui!";
+    public void AmmuksiaTestille() {
+        AmmusLaskuri += 48;
+    }
+
+    public int getAmmukset() {
+        return AmmusLaskuri;
+    }
+    public PeliLauta getLauta(){
+        return lauta;
+    }
+    /*
+     * @Param Tarkistaa osuuko ja päivittää tilastoja osumista
+     */
+
+    public void osuuko(int x, int y) {
+        if (lauta.osuu(x, y)) {
+            osumat.add(new Ruutu(x, y));
+        } else {
+            ohi.add(new Ruutu(x, y));
         }
-        return "Ohi!";
+    }
+
+    public ArrayList<Ruutu> osumat() {
+        return osumat;
+    }
+
+    public ArrayList<Ruutu> ohi() {
+        return ohi;
+    }
+    /*
+     * @return palauttaa vielä valitsemattomat ruudut
+     */
+
+    public ArrayList<Ruutu> tyhjia() {
+        this.tyhjat = new ArrayList<Ruutu>();
+        int x = 0;
+        for (int i = 0; i < 10; i++) {
+            int y = 0;
+            for (int j = 0; j < 10; j++) {
+                Ruutu uusi = new Ruutu(x, y);
+                if (!osumat.contains(uusi) && !ohi.contains(uusi)) {
+                    tyhjat.add(uusi);
+                }
+                y++;
+            }
+            x++;
+        }
+        return tyhjat;
     }
 }

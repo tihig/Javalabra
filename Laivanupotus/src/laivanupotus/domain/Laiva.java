@@ -10,7 +10,9 @@ public class Laiva {
     public Laiva() {
         this.palat = new ArrayList<Ruutu>();
     }
-
+/*
+ * @Param uusien Ruutujen lisäys laivaan
+ */
     public void lisaaRuutu(Ruutu ruutu) {
         palat.add(ruutu);
     }
@@ -22,7 +24,10 @@ public class Laiva {
     public ArrayList<Ruutu> Ruudut() {
         return palat;
     }
-
+/*
+ * @return Tarkastaa listasta onko kyseinen ruutu siellä.
+ * Jos on, niin lisää osumien määrää
+ */
     public void osuma(Ruutu ruutu) {
         int i = 0;
         while (i < palat.size()) {

@@ -1,7 +1,9 @@
 package laivanupotus.domain;
 
 import java.util.Random;
-
+/*
+ * Tässä luokassa suoritetaan satunnaisten arvojen arvonta
+ */
 public class KoordinaattiArpoja {
 
     private Random arvonta;
@@ -13,11 +15,11 @@ public class KoordinaattiArpoja {
     }
 
     public int arvoLuku() {
-        return arvonta.nextInt(9);
+        return new Random().nextInt(9);
     }
 
     public void Suunta() {
-        suunta = arvonta.nextInt(3);
+        suunta = new Random().nextInt(3);
     }
 
     public void annaSuunta(int luku) {

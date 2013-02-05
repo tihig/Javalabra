@@ -1,16 +1,23 @@
 package laivanupotus.domain;
 
 import java.util.ArrayList;
-
+/*
+ * Laivoja hallinnoiva luokka
+ */
 public class PeliLauta {
 
     private ArrayList<Laiva> laivat;
     private KoordinaattiArpoja arpoja;
+    private ArrayList<Ruutu> osumat;
 
     public PeliLauta() {
         this.laivat = new ArrayList<Laiva>();
         this.arpoja = new KoordinaattiArpoja();
+        this.osumat = new ArrayList<Ruutu>();
     }
+    /*
+     * @Param Luo laivat KoordinaattiArpojan arpomilla arvoilla.
+     */
 
     public void luoLaivat() {
         int ruutujenMaara = 1;
@@ -48,6 +55,9 @@ public class PeliLauta {
             ruutujenMaara++;
         }
     }
+    /*
+     * @Param Luo laivat tietyillä peräkkäisillä arvoilla
+     */
 
     public void luoLaivatTesteille() {
         for (int i = 0; i < 4; i++) {
@@ -69,14 +79,18 @@ public class PeliLauta {
             x++;
         }
     }
-
+/*
+ * @Return Palauttaa arvon true- jos käyttäjän syöttämät koordinaatit osuvat
+ * listalla olevaan ruutuun. 
+ */
     public boolean osuu(int x, int y) {
         for (Laiva laiva1 : laivat) {
             for (Ruutu pala : laiva1.Ruudut()) {
                 if (pala.getX() == x && pala.getY() == y) {
                     laiva1.osuma(pala);
                     if (laiva1.uppooko()) {
-                        System.out.println("Upposi!");
+                        System.out.println("Osui ja upposi!");
+                       return true;
                     }
                     return true;
                 }
@@ -84,7 +98,10 @@ public class PeliLauta {
         }
         return false;
     }
-
+/*
+ * @Return metodi tarkistaa, löytyykö samoja koordinaatteja omaavia Ruutuja
+ * listasta. Palauttaa true- jos on
+ */
     public boolean tarkistus(int x, int y) {
         if (!laivat.isEmpty()) {
             if (x > 9 || x < 0) {
@@ -111,5 +128,23 @@ public class PeliLauta {
             }
             System.out.println("]");
         }
+    }
+    
+    public ArrayList<Laiva> getLaivat(){
+        return laivat;
+    }
+    /*
+     * @return Tarkistaa, onko laiva saanut pituudensa verran osumia.
+     * Jos on, niin palauttaa true eli on uponnut
+     */
+    public boolean onkoUponnut(){
+        int osumia = 0;
+        for (Laiva laiva : laivat) {
+            osumia += laiva.getOsumat();
+        }
+        if(osumia == 10){
+            return true;
+        }
+        return false;
     }
 }

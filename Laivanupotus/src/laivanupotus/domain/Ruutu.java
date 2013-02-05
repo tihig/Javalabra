@@ -1,6 +1,8 @@
 
 package laivanupotus.domain;
-
+/*
+ *Yksittäinen kahden koordinaatin sisältävä elementti
+ */
 public class Ruutu {
    private int x;
    private int y;
@@ -15,6 +17,7 @@ public class Ruutu {
     public int getY() {
         return y;
     }
+    @Override
     public String toString(){
         return ""+ x + y;
     }

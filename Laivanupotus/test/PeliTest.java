@@ -7,9 +7,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class PeliMuutTest {
+public class PeliTest {
     private Peli game;
-    public PeliMuutTest() {
+    
+    public PeliTest() {
+        
     }
     
     @BeforeClass
@@ -23,17 +25,15 @@ public class PeliMuutTest {
     @Before
     public void setUp() {
         this.game = new Peli();
+        game.AmmuksiaTestille();
     }
     
     @After
     public void tearDown() {
     }
-   @Test
-   public void osuukoTrue(){
-       assertEquals("Osui!", game.osuuko(true));
-   }
+
      @Test
-   public void osuukoFalse(){
-       assertEquals("Ohi!", game.osuuko(false));
-   }
+     public void AmmustenMaaraOikea() {
+     assertEquals(48, game.getAmmukset());
+     }    
 }
