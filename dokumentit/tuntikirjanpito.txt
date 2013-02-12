@@ -13,6 +13,7 @@ Deadline IV 5.2.2013
 n.8 -9 h
 
 Deadline V 12.2.2013
+n.5 h
 
 Deadline VI 19.2.2013
 
@@ -62,3 +63,12 @@ Dl IV:
 Käyttöliittymän rakentamisen suurin osuus tuli tehtyä tällä kertaa.
 Ongelmia rakentamisessa oli Layout-rakenteen kanssa, jota täytyy vielä säätää hieman. Kentästä puuttuu nyt numerointi, joka olisi käyttäjäystävällinen piirre ulkoasussa. 
 Itse sovelluslogiikassa kaikki on tulosten laskentaa lukuunottamatta valmista. Tähän on tulossa oma kohtansa koodin.
+
+Dl V:
+
+- lisää koodin siistimistä
+- bugien korjailua
+- lisää testejä
+- käyttöohjeiden tarkennusta
+
+Tällä kertaa tuli tehtyä ns. hienosäätöä. Isot bugit ohjelmassa osoittautuivat mahdottomiksi, joten tyydyin korjailemaan ja siistimään. Lisäksi testejä tarkennettiin uusien metodien syntymisen myötä ja vanhoihin tehtiin tarkennuksia.
