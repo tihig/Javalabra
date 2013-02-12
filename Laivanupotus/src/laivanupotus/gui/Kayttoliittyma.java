@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -14,6 +13,7 @@ import laivanupotus.Peli;
 /*
  * Hallinnoi graaffista ulkoasua
  */
+
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
@@ -56,15 +56,16 @@ public class Kayttoliittyma implements Runnable {
         JPanel valikko = luoValikko();
         valikko.add(kentta);
         valikko.add(ammu);
-        container.add(valikko,BorderLayout.SOUTH);
+        container.add(valikko, BorderLayout.SOUTH);
 
         Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(peli, piirtoalusta, kentta);
         frame.addKeyListener(kuuntelija);
     }
-      private JPanel luoValikko() {
-           
+
+    private JPanel luoValikko() {
+
         JPanel panel = new JPanel(new GridLayout(1, 2));
-      
+
         return panel;
     }
 

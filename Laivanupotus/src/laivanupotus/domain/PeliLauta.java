@@ -4,6 +4,7 @@ import java.util.ArrayList;
 /*
  * Laivoja hallinnoiva luokka
  */
+
 public class PeliLauta {
 
     private ArrayList<Laiva> laivat;
@@ -71,18 +72,19 @@ public class PeliLauta {
             for (int j = 0; j < ruutujenMaara; j++) {
                 Ruutu ruutu = new Ruutu(x, y);
                 bootti.lisaaRuutu(ruutu);
-                if (j > 0) {
+      
                     y++;
-                }
+              
             }
             ruutujenMaara++;
             x++;
         }
     }
-/*
- * @Return Palauttaa arvon true- jos käyttäjän syöttämät koordinaatit osuvat
- * listalla olevaan ruutuun. 
- */
+    /*
+     * @Return Palauttaa arvon true- jos käyttäjän syöttämät koordinaatit osuvat
+     * listalla olevaan ruutuun. 
+     */
+
     public boolean osuu(int x, int y) {
         for (Laiva laiva1 : laivat) {
             for (Ruutu pala : laiva1.Ruudut()) {
@@ -90,7 +92,7 @@ public class PeliLauta {
                     laiva1.osuma(pala);
                     if (laiva1.uppooko()) {
                         System.out.println("Osui ja upposi!");
-                       return true;
+                        return true;
                     }
                     return true;
                 }
@@ -98,10 +100,11 @@ public class PeliLauta {
         }
         return false;
     }
-/*
- * @Return metodi tarkistaa, löytyykö samoja koordinaatteja omaavia Ruutuja
- * listasta. Palauttaa true- jos on
- */
+    /*
+     * @Return metodi tarkistaa, löytyykö samoja koordinaatteja omaavia Ruutuja
+     * listasta. Palauttaa true- jos on
+     */
+
     public boolean tarkistus(int x, int y) {
         if (!laivat.isEmpty()) {
             if (x > 9 || x < 0) {
@@ -129,20 +132,23 @@ public class PeliLauta {
             System.out.println("]");
         }
     }
-    
-    public ArrayList<Laiva> getLaivat(){
+
+    public ArrayList<Laiva> getLaivat() {
         return laivat;
     }
     /*
      * @return Tarkistaa, onko laiva saanut pituudensa verran osumia.
      * Jos on, niin palauttaa true eli on uponnut
      */
-    public boolean onkoUponnut(){
-        int osumia = 0;
+
+    public boolean onkoUponnut() {
+        int uponneita = 0;
         for (Laiva laiva : laivat) {
-            osumia += laiva.getOsumat();
+            if(laiva.uppooko()){
+               uponneita++; 
+            }
         }
-        if(osumia == 10){
+        if (uponneita == 4) {
             return true;
         }
         return false;

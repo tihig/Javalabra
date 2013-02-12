@@ -66,4 +66,13 @@ public class LaivaTest {
         laiva.osuma(vaara);
         assertEquals(0, laiva.getOsumat());
     }
+    public void laivaUppookoEi() {
+        Ruutu vaara = new Ruutu(1, 2);
+        laiva.osuma(vaara);
+        assertEquals(false, laiva.getOsumat());
+    }
+    public void laivaUppookoKylla() {
+        laiva.osuma(ruutu);
+        assertEquals(true, laiva.getOsumat());
+    }
 }

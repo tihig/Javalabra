@@ -1,9 +1,13 @@
 package laivanupotus;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import laivanupotus.domain.PeliLauta;
 import laivanupotus.domain.Ruutu;
+import laivanupotus.domain.Tulokset;
+
 
 /*
  * Hallinnoi käyttäjän syötteitä ja pitää kirjaa ammutuista ammuksista
@@ -24,6 +28,8 @@ public class Peli {
         this.osumat = new ArrayList<Ruutu>();
         this.ohi = new ArrayList<Ruutu>();
         this.tyhjat = new ArrayList<Ruutu>();
+
+
     }
     /*
      * @Param Käynnistää pelin luomalla laivat
@@ -49,7 +55,8 @@ public class Peli {
         }
         if (lauta.onkoUponnut()) {
             System.out.println("VOITTO!");
-
+        }
+        if (AmmusLaskuri >= 50) {
         }
     }
     /*
@@ -93,7 +100,8 @@ public class Peli {
     public int getAmmukset() {
         return AmmusLaskuri;
     }
-    public PeliLauta getLauta(){
+
+    public PeliLauta getLauta() {
         return lauta;
     }
     /*
@@ -126,7 +134,22 @@ public class Peli {
             int y = 0;
             for (int j = 0; j < 10; j++) {
                 Ruutu uusi = new Ruutu(x, y);
-                if (!osumat.contains(uusi) && !ohi.contains(uusi)) {
+                boolean loytyyko = false;
+                for (Ruutu ruutu : osumat) {
+                    if (ruutu.getX() == uusi.getX() && ruutu.getY() == uusi.getY()) {
+                        loytyyko = true;
+                        break;
+                    }
+                }
+                if (loytyyko == false) {
+                    for (Ruutu ruutu : ohi) {
+                        if (ruutu.getX() == uusi.getX() && ruutu.getY() == uusi.getY()) {
+                            loytyyko = true;
+                            break;
+                        }
+                    }
+                }
+                if (loytyyko == false) {
                     tyhjat.add(uusi);
                 }
                 y++;
@@ -134,5 +157,7 @@ public class Peli {
             x++;
         }
         return tyhjat;
+
+
     }
 }

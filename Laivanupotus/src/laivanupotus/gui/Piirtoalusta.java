@@ -8,6 +8,7 @@ import laivanupotus.domain.Ruutu;
 /*
  * Pelialustan piirtäminen tapahtuu täällä
  */
+
 class Piirtoalusta extends JPanel implements Paivitettava {
 
     private Peli peli;
@@ -24,17 +25,17 @@ class Piirtoalusta extends JPanel implements Paivitettava {
         super.paintComponent(graphics);
         graphics.setColor(Color.BLUE);
         for (Ruutu ruutu : peli.tyhjia()) {
-            graphics.fill3DRect(ruutu.getX()*sivunPituus, ruutu.getY()*sivunPituus, sivunPituus, sivunPituus, true);
+            graphics.fill3DRect(ruutu.getX() * sivunPituus, ruutu.getY() * sivunPituus, sivunPituus, sivunPituus, true);
         }
         graphics.setColor(Color.RED);
         for (Ruutu ruutu : peli.osumat()) {
-            graphics.fill3DRect(ruutu.getX()*sivunPituus, ruutu.getY()*sivunPituus, sivunPituus, sivunPituus, true);
+            graphics.fill3DRect(ruutu.getX() * sivunPituus, ruutu.getY() * sivunPituus, sivunPituus, sivunPituus, true);
         }
-         graphics.setColor(Color.GRAY);
+        graphics.setColor(Color.GRAY);
         for (Ruutu ruutu : peli.ohi()) {
-            graphics.fill3DRect(ruutu.getX()*sivunPituus, ruutu.getY()*sivunPituus, sivunPituus, sivunPituus, true);
+            graphics.fill3DRect(ruutu.getX() * sivunPituus, ruutu.getY() * sivunPituus, sivunPituus, sivunPituus, true);
         }
-        
+
     }
 
     @Override

@@ -4,6 +4,7 @@ import java.util.Random;
 /*
  * Tässä luokassa suoritetaan satunnaisten arvojen arvonta
  */
+
 public class KoordinaattiArpoja {
 
     private Random arvonta;
