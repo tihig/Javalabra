@@ -1,6 +1,7 @@
 package laivanupotus;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import laivanupotus.domain.PeliLauta;
 import laivanupotus.domain.Ruutu;
 
@@ -57,7 +58,7 @@ public class Peli {
      * @return palauttaa kirjainta vastaavaan numerokoordinaatin
      */
 
-    public int muutaArvoX(String arvo) {
+    public int muutaArvoX(String arvo) {   
         String kirjaimet = "ABCDEFGHIJ";
         int i = 0;
         while (i < kirjaimet.length()) {
@@ -66,22 +67,33 @@ public class Peli {
             }
             i++;
         }
-        return 99;
+        if (kirjaimet.contains(arvo.charAt(0) + "")) {
+            return kirjaimet.indexOf(arvo.charAt(0));
+        } else {
+            JOptionPane.showMessageDialog(null, "Syötä koordinaatit muodossa 'F7'");
+            return 99;
+        }
     }
     /*
      * @return palauttaa kirjainmuodossa annetun numeron numeromuotoisena
      */
 
     public int muutaArvoY(String arvo) {
-        String numerot = "0123456789";
-        int i = 0;
-        while (i < numerot.length()) {
-            if (numerot.charAt(i) == arvo.charAt(1)) {
-                return i;
-            }
-            i++;
+        arvo = arvo.substring(1);
+        int x = -1;
+        try {
+            x = Integer.parseInt(arvo);
+        } catch (NumberFormatException nx) {
+            JOptionPane.showMessageDialog(null, "Syötä koordinaatit muodossa 'F7'");
         }
-        return 99;
+        x--;
+        String numerot = "0123456789";
+        if (numerot.contains(x + "")) {
+            return x;
+        } else {
+            JOptionPane.showMessageDialog(null, "Syötä koordinaatit muodossa 'F7'");
+            return 99;
+        }
     }
     /*
      * @Param testitapauksille lopetuksen todentaminen

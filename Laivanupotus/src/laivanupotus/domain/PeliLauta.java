@@ -1,6 +1,7 @@
 package laivanupotus.domain;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 /*
  * Laivoja hallinnoiva luokka
  */
@@ -9,7 +10,6 @@ public class PeliLauta {
 
     private ArrayList<Laiva> laivat;
     private KoordinaattiArpoja arpoja;
- 
 
     public PeliLauta() {
         this.laivat = new ArrayList<Laiva>();
@@ -71,9 +71,7 @@ public class PeliLauta {
             for (int j = 0; j < ruutujenMaara; j++) {
                 Ruutu ruutu = new Ruutu(x, y);
                 bootti.lisaaRuutu(ruutu);
-      
-                    y++;
-              
+                y++;
             }
             ruutujenMaara++;
             x++;
@@ -90,7 +88,7 @@ public class PeliLauta {
                 if (pala.getX() == x && pala.getY() == y) {
                     laiva1.osuma(pala);
                     if (laiva1.onkoUponnut()) {
-                        System.out.println("Osui ja upposi!");
+                        JOptionPane.showMessageDialog(null, "Osui ja upposi!");
                         return true;
                     }
                     return true;
@@ -143,8 +141,8 @@ public class PeliLauta {
     public boolean ovatkoKaikkiUponneet() {
         int uponneita = 0;
         for (Laiva laiva : laivat) {
-            if(laiva.onkoUponnut()){
-               uponneita++; 
+            if (laiva.onkoUponnut()) {
+                uponneita++;
             }
         }
         if (uponneita == 4) {
