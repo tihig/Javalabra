@@ -13,18 +13,8 @@ public class Laivanupotus {
         Kayttoliittyma kayttis = new Kayttoliittyma(peli, 20);
 
         kayttis.run();
-//        peli.kaynnista();
-//        peli.getLauta().luoLaivatTesteille();
-//        peli.getLauta().tulostaLaivat();
-//        peli.osuuko(1, 0);
-//        peli.osuuko(9, 9);
-//        System.out.println(peli.tyhjia().size());
+        peli.kaynnista();
 
-//        Tulokset tulokset = new Tulokset();
-//        tulokset.lisaaTulos("pekka", 3);
-//
-//        tulokset.getTulosLista();
-//        tulokset.tulostaTulokset(); 
 
     }
 }
