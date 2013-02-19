@@ -1,20 +1,14 @@
 package laivanupotus;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import laivanupotus.domain.PeliLauta;
 import laivanupotus.domain.Ruutu;
-import laivanupotus.domain.Tulokset;
-
 
 /*
  * Hallinnoi käyttäjän syötteitä ja pitää kirjaa ammutuista ammuksista
  */
 public class Peli {
 
-    private Scanner lukija;
     private PeliLauta lauta;
     private ArrayList<Ruutu> osumat;
     private ArrayList<Ruutu> ohi;
@@ -22,7 +16,7 @@ public class Peli {
     private int AmmusLaskuri;
 
     public Peli() {
-        this.lukija = new Scanner(System.in);
+
         this.lauta = new PeliLauta();
         this.AmmusLaskuri = 0;
         this.osumat = new ArrayList<Ruutu>();
@@ -49,11 +43,11 @@ public class Peli {
         int arvoY = muutaArvoY(vastaus);
         if (arvoX == 99 || arvoY == 99) {
         } else {
-            lauta.osuu(arvoX, arvoY);
+            lauta.osuukoLaivaan(arvoX, arvoY);
             this.osuuko(arvoX, arvoY);
             AmmusLaskuri++;
         }
-        if (lauta.onkoUponnut()) {
+        if (lauta.ovatkoKaikkiUponneet()) {
             System.out.println("VOITTO!");
         }
         if (AmmusLaskuri >= 50) {
@@ -109,7 +103,7 @@ public class Peli {
      */
 
     public void osuuko(int x, int y) {
-        if (lauta.osuu(x, y)) {
+        if (lauta.osuukoLaivaan(x, y)) {
             osumat.add(new Ruutu(x, y));
         } else {
             ohi.add(new Ruutu(x, y));
@@ -127,7 +121,7 @@ public class Peli {
      * @return palauttaa vielä valitsemattomat ruudut
      */
 
-    public ArrayList<Ruutu> tyhjia() {
+    public ArrayList<Ruutu> getTyhjat() {
         this.tyhjat = new ArrayList<Ruutu>();
         int x = 0;
         for (int i = 0; i < 10; i++) {
@@ -157,7 +151,5 @@ public class Peli {
             x++;
         }
         return tyhjat;
-
-
     }
 }

@@ -24,7 +24,7 @@ class Piirtoalusta extends JPanel implements Paivitettava {
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
         graphics.setColor(Color.BLUE);
-        for (Ruutu ruutu : peli.tyhjia()) {
+        for (Ruutu ruutu : peli.getTyhjat()) {
             graphics.fill3DRect(ruutu.getX() * sivunPituus, ruutu.getY() * sivunPituus, sivunPituus, sivunPituus, true);
         }
         graphics.setColor(Color.RED);

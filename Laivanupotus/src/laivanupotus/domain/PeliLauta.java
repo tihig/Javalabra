@@ -9,12 +9,11 @@ public class PeliLauta {
 
     private ArrayList<Laiva> laivat;
     private KoordinaattiArpoja arpoja;
-    private ArrayList<Ruutu> osumat;
+ 
 
     public PeliLauta() {
         this.laivat = new ArrayList<Laiva>();
         this.arpoja = new KoordinaattiArpoja();
-        this.osumat = new ArrayList<Ruutu>();
     }
     /*
      * @Param Luo laivat KoordinaattiArpojan arpomilla arvoilla.
@@ -32,21 +31,21 @@ public class PeliLauta {
                 if (j == 0) {
                     x = arpoja.arvoLuku();
                     y = arpoja.arvoLuku();
-                    boolean tarkistus = tarkistus(x, y);
+                    boolean tarkistus = koordinaattienTarkistus(x, y);
                     while (tarkistus) {
                         x = arpoja.arvoLuku();
                         y = arpoja.arvoLuku();
-                        tarkistus = tarkistus(x, y);
+                        tarkistus = koordinaattienTarkistus(x, y);
                     }
                 } else {
                     x = arpoja.palautaX(x);
                     y = arpoja.palautaY(y);
-                    boolean tarkistus = tarkistus(x, y);
+                    boolean tarkistus = koordinaattienTarkistus(x, y);
                     while (tarkistus) {
                         arpoja.Suunta();
                         x = arpoja.palautaX(x);
                         y = arpoja.palautaY(y);
-                        tarkistus = tarkistus(x, y);
+                        tarkistus = koordinaattienTarkistus(x, y);
                     }
                 }
                 alus.lisaaRuutu(new Ruutu(x, y));
@@ -85,12 +84,12 @@ public class PeliLauta {
      * listalla olevaan ruutuun. 
      */
 
-    public boolean osuu(int x, int y) {
+    public boolean osuukoLaivaan(int x, int y) {
         for (Laiva laiva1 : laivat) {
             for (Ruutu pala : laiva1.Ruudut()) {
                 if (pala.getX() == x && pala.getY() == y) {
                     laiva1.osuma(pala);
-                    if (laiva1.uppooko()) {
+                    if (laiva1.onkoUponnut()) {
                         System.out.println("Osui ja upposi!");
                         return true;
                     }
@@ -105,7 +104,7 @@ public class PeliLauta {
      * listasta. Palauttaa true- jos on
      */
 
-    public boolean tarkistus(int x, int y) {
+    public boolean koordinaattienTarkistus(int x, int y) {
         if (!laivat.isEmpty()) {
             if (x > 9 || x < 0) {
                 return true;
@@ -141,10 +140,10 @@ public class PeliLauta {
      * Jos on, niin palauttaa true eli on uponnut
      */
 
-    public boolean onkoUponnut() {
+    public boolean ovatkoKaikkiUponneet() {
         int uponneita = 0;
         for (Laiva laiva : laivat) {
-            if(laiva.uppooko()){
+            if(laiva.onkoUponnut()){
                uponneita++; 
             }
         }

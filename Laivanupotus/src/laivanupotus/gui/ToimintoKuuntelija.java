@@ -1,11 +1,9 @@
 package laivanupotus.gui;
 
+import laivanupotus.tulokset.TuloksetIkkuna;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import laivanupotus.Peli;
@@ -32,6 +30,14 @@ public class ToimintoKuuntelija implements ActionListener {
         if (peli.getAmmukset() == 50) {
             kentta.setText("GAME OVER");
             kentta.setEnabled(false);
+            TuloksetIkkuna tulokset = null;
+            try {            
+                tulokset = new TuloksetIkkuna(peli);
+            } catch (Exception ex) {
+                System.out.println("ERROR");;
+            }
+            
+            tulokset.run();
         }
         if (ae.getSource() == nappi) {
             String vastaus = kentta.getText();
@@ -40,6 +46,15 @@ public class ToimintoKuuntelija implements ActionListener {
 
             kentta.setText("");
             component.repaint();
+        }
+        if (peli.getLauta().ovatkoKaikkiUponneet()) {
+            TuloksetIkkuna tulokset = null;
+            try {               
+                tulokset = new TuloksetIkkuna(peli);
+            } catch (Exception ex) {
+                System.out.println("ERROR");;
+            }   
+            tulokset.run();
         }
     }
 }

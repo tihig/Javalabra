@@ -58,14 +58,10 @@ public class Kayttoliittyma implements Runnable {
         valikko.add(ammu);
         container.add(valikko, BorderLayout.SOUTH);
 
-        Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(peli, piirtoalusta, kentta);
-        frame.addKeyListener(kuuntelija);
     }
 
     private JPanel luoValikko() {
-
         JPanel panel = new JPanel(new GridLayout(1, 2));
-
         return panel;
     }
 

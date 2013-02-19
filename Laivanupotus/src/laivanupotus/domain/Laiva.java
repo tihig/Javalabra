@@ -39,7 +39,7 @@ public class Laiva {
         }
     }
 
-    public boolean uppooko() {
+    public boolean onkoUponnut() {
         if (osumat == palat.size()) {
             return true;
         }
