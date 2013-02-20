@@ -5,42 +5,38 @@
 package laivanupotus.tulokset;
 
 import java.awt.Container;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JButton;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JList;
 import javax.swing.JTextField;
 import laivanupotus.Peli;
 
-/**
- *
- * @author Viivi
+/*
+ * Mahdollistaa enterin käytön tuloslistassa
  */
-public class TulosToimintoKuuntelija implements ActionListener {
+class TNappaimistonkuuntelija implements KeyListener {
 
-    private JTextField kentta;
-    private JButton nappi;
-    private Tulokset tulokset;
     private Peli peli;
     private JList lista;
     private Container container;
+    private JTextField kentta;
+    private Tulokset tulokset;
 
-    public TulosToimintoKuuntelija(JTextField syoteKentta, JButton nappi, Peli peli, JList lista, Container container) throws Exception {
-        this.kentta = syoteKentta;
-        this.nappi = nappi;
-        this.tulokset = new Tulokset();
+    public TNappaimistonkuuntelija(JTextField syoteKentta, Peli peli, JList lista, Container container) throws Exception {
         this.peli = peli;
-        kentta.setText("Anna nimi");
         this.lista = lista;
+        this.kentta = syoteKentta;
         this.container = container;
+        this.tulokset = new Tulokset();
     }
 
     @Override
-    public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == nappi) {
+    public void keyTyped(KeyEvent ke) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent ke) {
+        if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
             String annettuNimi = kentta.getText();
             try {
                 tulokset.lisaaTulos(annettuNimi, peli.getAmmukset());
@@ -55,7 +51,11 @@ public class TulosToimintoKuuntelija implements ActionListener {
             } catch (Exception ex) {
                 kentta.setText("listassa virhe");
             }
-
         }
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
     }
 }

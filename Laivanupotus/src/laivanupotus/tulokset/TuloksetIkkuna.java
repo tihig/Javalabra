@@ -15,7 +15,6 @@ import laivanupotus.Peli;
 /**
  * Pelin jälkeinen tulosten näyttäminen
  *
- * @author Viivi
  */
 public class TuloksetIkkuna implements Runnable {
 
@@ -23,7 +22,7 @@ public class TuloksetIkkuna implements Runnable {
     private Peli peli;
     private Tulokset tulokset;
 
-    public TuloksetIkkuna(Peli peli) throws Exception{
+    public TuloksetIkkuna(Peli peli) throws Exception {
         this.peli = peli;
         this.tulokset = new Tulokset();
 
@@ -45,7 +44,7 @@ public class TuloksetIkkuna implements Runnable {
         frame.setVisible(true);
     }
 
-    public void luoKomponentit(Container container) throws Exception{
+    public void luoKomponentit(Container container) throws Exception {
         container.setLayout(new BorderLayout());
         JTextField syoteKentta = new JTextField();
 
@@ -54,14 +53,18 @@ public class TuloksetIkkuna implements Runnable {
         container.add(lista);
 
         JButton enter = new JButton("Enter");
-        TulosToimintoKuuntelija toimija = new TulosToimintoKuuntelija(syoteKentta, enter, peli, lista, container);
+        TToimintoKuuntelija toimija = new TToimintoKuuntelija(syoteKentta, enter, peli, lista, container);
+        TNappaimistonkuuntelija kuuntelija = new TNappaimistonkuuntelija(syoteKentta, peli, lista, container);
+        
         enter.addActionListener(toimija);
         syoteKentta.addActionListener(toimija);
+        syoteKentta.addKeyListener(kuuntelija);
 
         JPanel valikko = luoValikko();
         valikko.add(syoteKentta);
         valikko.add(enter);
         container.add(valikko, BorderLayout.SOUTH);
+
     }
 
     private JPanel luoValikko() {

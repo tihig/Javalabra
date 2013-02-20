@@ -1,12 +1,12 @@
 package laivanupotus.gui;
 
-import laivanupotus.tulokset.TuloksetIkkuna;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import laivanupotus.Peli;
+import laivanupotus.tulokset.TuloksetIkkuna;
 /*
  * Syötekentän ja napin toimintoja hallinnoiva
  */
@@ -31,12 +31,12 @@ public class ToimintoKuuntelija implements ActionListener {
             kentta.setText("GAME OVER");
             kentta.setEnabled(false);
             TuloksetIkkuna tulokset = null;
-            try {            
+            try {
                 tulokset = new TuloksetIkkuna(peli);
             } catch (Exception ex) {
-                System.out.println("ERROR");;
+                System.out.println("ERROR");
             }
-            
+
             tulokset.run();
         }
         if (ae.getSource() == nappi) {
@@ -49,11 +49,11 @@ public class ToimintoKuuntelija implements ActionListener {
         }
         if (peli.getLauta().ovatkoKaikkiUponneet()) {
             TuloksetIkkuna tulokset = null;
-            try {               
+            try {
                 tulokset = new TuloksetIkkuna(peli);
             } catch (Exception ex) {
-                System.out.println("ERROR");;
-            }   
+                System.out.println("ERROR");
+            }
             tulokset.run();
         }
     }
